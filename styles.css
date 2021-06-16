@@ -1,6 +1,15 @@
 :root {
     --menu-bar-width: 60px;
     --menu-bar-height: 10px;
+    --menu-transition: ease-in-out 1s, ease-out 3s;
+}
+
+.container {
+    display: inline-block;
+    width: 60px;
+    border: 3px solid transparent;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #menu {
@@ -8,7 +17,7 @@
     position: relative;
     width: var(--menu-bar-width);
     height: var(--menu-bar-height);
-    margin: 100px;
+   /* margin: 100px;*/
 }
 
 #menu::before,
@@ -30,4 +39,27 @@
     left: 0;
     top: 20px;
 }
+
+.container:hover {
+    transition: all 1s;
+    background-color: transparent;
+}
+
+#menu:hover::before {
+    transition: var(--menu-transition);
+    transform: rotate(45deg);
+    top: 0px;
+}
+
+#menu:hover::after {
+    transition: var(--menu-transition);
+    transform: rotate(-45deg);
+    top: 0px;
+}
+
+#menu:hover {
+    transition: var(--menu-transition);
+    background-color: transparent;
+}
+
 
